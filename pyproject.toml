@@ -23,7 +23,6 @@ dependencies = [
   "python-keycloak",
   "prometheus-client",
   "geopy",
-  "ksql"
 ]
 classifiers = [
      "Programming Language :: Python :: 3",
@@ -39,7 +38,8 @@ Isssues  = "https://github.com/Akkodis/5gmeta/issues"
 [project.optional-dependencies]
 gi = [
    "pycairo",
-  "pygobject"
+  "pygobject",
+  "ksql"
 ]
 
 [build-system]
