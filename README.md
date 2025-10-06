@@ -45,18 +45,24 @@ The 5GMETA open platform aims to leverage car-captured data to stimulate, facili
 It is designed to operate as a common infrastructure for implementing data pipelines for heterogeneous [Connected, Cooperative and Automated Mobility (CCAM)](https://transport.ec.europa.eu/transport-themes/smart-mobility/cooperative-connected-and-automated-mobility-ccam_en) applications.
 
 <p align="center">
+
+<figure>
 <img src="./docs/images/platform_high_level.jpg" />
 
-### Platform Overview
+<figcaption>Platform Overview</figcaption>
+</figure>
 </p>
 
 [5GMETA](https://cordis.europa.eu/project/id/957360) Plateform is an interactive platform that functions as a broker between data producers (such as vehicles or road sensors) and data consumers (such as app providers). With the [5GMETA](https://cordis.europa.eu/project/id/957360) Platform, data consumers can subscribe to specific data flows and decide how to use and deploy them: process them, store them or discard them. The [5GMETA](https://cordis.europa.eu/project/id/957360) Platform allows data to be decoupled from their producers, thus eliminating the necessity of creating direct links between producers and consumers. Nevertheless, the [5GMETA](https://cordis.europa.eu/project/id/957360) Platform does not only act as a broker, but it also includes functions that address data management, data monetization and cybersecurity.
 
-<p align="center">
+
+<figure>
 <img src="./docs/images/5GMETA_platform_elements.png" />
 
-### Architecture of the 5GMETA Platform
+<figcaption>Architecture of the 5GMETA Platform</figcaption>
+</figure>
 </p>
+
 
 ### [5GMETA](https://cordis.europa.eu/project/id/957360) Platform User profiles definition <a name="user-profiles"></a>
 
@@ -69,9 +75,11 @@ Three main profiles have been identified to interact with the data platform and 
 Figure below illustrates the main relation of these different categories with the [5GMETA](https://cordis.europa.eu/project/id/957360) Platform and the principal stakeholders for each of these three profiles.
 
 <p align="center">
+<figure>
 <img src="./docs/images/5gmeta_actors.png" />
 
-User profiles overview
+<figurecaption>User profiles overview</figurecaption>
+</figure>
 </p>
 
 ### Platform instantiation of Low Latency Data services <a name="low-latencies"></a>
@@ -87,9 +95,11 @@ To ensure the security and integrity of the [MEC](https://www.etsi.org/technolog
 
 
 <p align="center">
+<figure>
 <img src="./docs/images/low-latency-service-deployment.png" />
 
-Procedure to instantiate a Low Latency Data service
+<figurecaption> Procedure to instantiate a Low Latency Data service</figurecaption>
+</figure>
 </p>
 
 
