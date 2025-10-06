@@ -141,8 +141,8 @@ A Dataflow is a unique flow/stream of produced data that is shared by a S&D thro
 
 ### Pipeline
 
-A **Pipeline** is a group of Modules (containers) running in a MEC to handle a specific data-type. Each module can process the data received subscribing a queue/topic and generate output data in a new queue/topic into the MEC’s message broker.
-A Module is a container running in a MEC that hande a specific data-type or group of data-type (e.g. C-ITS messages). Modules should be Pub/Sub application.
+A **Pipeline** is a group of modules (containers) running in a MEC to handle a specific data-type. Each module can process the data received subscribing a queue/topic and generate output data in a new queue/topic into the MEC’s message broker.
+A module is a container running in a MEC that hande a specific data-type or group of data-type (e.g. C-ITS messages). Modules should be Pub/Sub application.
 
 ### InstanceTypes
 
@@ -200,14 +200,9 @@ This section presents the repositories of the main modules of the [5GMETA](https
 Illustration of the Cloud Platform
 </p>
 
-### Cloud Services shortcuts
+### py5gmeta for CCAM application development
 
-The [5GMETA](https://cordis.europa.eu/project/id/957360) platform provides various building blocks that developers can use to develop CCAM applications on top of the platform.
-These building blocks include Identity, an API server ( for Discovery, Dataflow, Instance Type, License) accessible through the APISIX Gateway which can be used as follows:
-
-1.	[API Server](https://github.com/Akkodis/cloud-platform/tree/main/src/apiserver): This building block enables developers to browse available MECs, locations, and tile coverage to select the desired locations, Dataflows and Licenses.
-2.	[Identity](https://www.keycloak.org/): Developers can use this building block to retrieve the OpenID configuration and request access tokens to authenticate API requests.
-3.	[Dashboard](https://superset.apache.org/)
+The [5GMETA](https://cordis.europa.eu/project/id/957360) platform provides a Python library called [py5gmeta](https://github.com/Akkodis/5GMETA/tree/main/src/py5gmeta) to facilitate CCAM applications development and interraction with the platforms.
 
 After all the necessary operations have been performed, the [5GMETA](https://cordis.europa.eu/project/id/957360) platform processes the request and provides the credentials needed to connect to the platform and Kafka topic to start consuming and building their application on top of [5GMETA](https://cordis.europa.eu/project/id/957360).
 
