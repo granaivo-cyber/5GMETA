@@ -113,7 +113,7 @@ In this consuming guide file, we provide information about the geographic areas 
 
 ### Datatypes
 
-5GMETA Platform provide wide range of **Datatypes** :
+A **Datatype** is a type of data that the S&D share and a Pipeline in a MEC accept and handle. 5GMETA Platform provide wide range of **Datatypes** :
 
 -  **[ETSI Cooperative Intelligent Transport Systems (C-ITS)](https://www.etsi.org/technologies/automotive-intelligent-transport)  messages (CAM, DENM, etc.)** converted in JSON.
 
@@ -134,7 +134,6 @@ Example of Image datatype
 
 -  ***Video Streams*** in **H.264** video standard Format (x264 implementation)
 
-A **Datatype** is a type of data that the S&D share and a Pipeline in a MEC accept and handle.
 
 ### Dataflow
 
