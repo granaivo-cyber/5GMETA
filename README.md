@@ -47,7 +47,7 @@ It is designed to operate as a common infrastructure for implementing data pipel
 <p align="center">
 <img src="./docs/images/platform_high_level.jpg" />
 
-Platform Overview
+### Platform Overview
 </p>
 
 [5GMETA](https://cordis.europa.eu/project/id/957360) Plateform is an interactive platform that functions as a broker between data producers (such as vehicles or road sensors) and data consumers (such as app providers). With the [5GMETA](https://cordis.europa.eu/project/id/957360) Platform, data consumers can subscribe to specific data flows and decide how to use and deploy them: process them, store them or discard them. The [5GMETA](https://cordis.europa.eu/project/id/957360) Platform allows data to be decoupled from their producers, thus eliminating the necessity of creating direct links between producers and consumers. Nevertheless, the [5GMETA](https://cordis.europa.eu/project/id/957360) Platform does not only act as a broker, but it also includes functions that address data management, data monetization and cybersecurity.
@@ -55,7 +55,7 @@ Platform Overview
 <p align="center">
 <img src="./docs/images/5GMETA_platform_elements.png" />
 
-Architecture of the 5GMETA Platform
+### Architecture of the 5GMETA Platform
 </p>
 
 ### [5GMETA](https://cordis.europa.eu/project/id/957360) Platform User profiles definition <a name="user-profiles"></a>
