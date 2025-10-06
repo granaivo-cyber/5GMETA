@@ -225,7 +225,7 @@ MEC Platform
 
 ### Sensors and Devices <a name="sensors-and-devices"></a>
 
-The 5GMETA platform exposes a set of APIs for Sensor&Devices developers to register and manage data flows to start sending Data to the platform, these building blocks include Discovery and Registration as described below. [A unique API Server](https://github.com/Akkodis/mec-platform/tree/main/src/edge-apiserver) allows:
+The 5GMETA platform exposes a set of APIs for Sensor&Devices developers to register and manage data flows to start sending Data to the platform, these building blocks include Discovery and Registration as described below. A unique [API Server](https://github.com/Akkodis/cloud-platform/tree/main/src/apiserver) and [py5gmeta](https://github.com/Akkodis/5GMETA/tree/main/src/py5gmeta) allow:
 - The building block allows Sensors and Devices developers to discover available MECs and their locations based on their geographical location and tile coverage to be forwarded to the nearest MEC to register your dataflow.
 - This building block allows developers to register a data flow by providing metadata related to the data flow. The output of this method is a JSON containing the ID of the generated data flow, the topic where to publish, and a Boolean indicating whether there is a consumer listening for that type of data.
 
