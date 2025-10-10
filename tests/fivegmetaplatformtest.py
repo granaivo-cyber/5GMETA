@@ -1,5 +1,5 @@
 from unittest import TestCase
-from proton.reactor import Container
+
 
 class FiveGMetaPlatformTestCase(TestCase):
     def setUp(self):
@@ -30,15 +30,6 @@ class FiveGMetaPlatformTestCase(TestCase):
         self.registry_port =  "31081"
         self.disable_instance_api = False
 
-
-    def test_username(self):
-        pass
-
-    def test_password(self):
-        pass
-
-    def test_tile(self):
-        pass
 
 
 

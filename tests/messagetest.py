@@ -31,8 +31,6 @@ class MessageTestCase(unittest.TestCase):
     def test_message_generator(self):
         message.messages_generator("cits", 1, self.body, "1", tile="1234567891010101")
 
-    def image_cits_messages_generator(self):
-        pass
 
 if __name__ == '__main__':
     unittest.main()

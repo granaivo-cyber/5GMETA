@@ -4,7 +4,7 @@ from py5gmeta.common import address
 
 class AddressTestCase(unittest.TestCase):
     def setUp(self):
-        self.tile = "123456789"
+        self.tile = "0313331232010333"
         self.host = ""
         self.port = ""
         self.username = "testuser"

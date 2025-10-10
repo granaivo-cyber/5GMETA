@@ -1,3 +1,4 @@
+import datetime
 import json
 import sys
 import time
@@ -20,12 +21,12 @@ def delivery_report(err, msg):
 class KafkaTestCase(unittest.TestCase):
 
     def setUp(self):
-        self.kafka_host = "192.168.49.2"
+        self.kafka_host = "cloudplatform.francecentral.cloudapp.azure.com"
         self.kafka_port = "31090"
         self.admin_client = AdminClient({'bootstrap.servers': self.kafka_host + ':' + self.kafka_port})
         self.tile = "031333123201"
         self.instance_type = "small"  # small
-        self.platform_address = "192.168.49.2"
+        self.platform_address = "cloudplatform.francecentral.cloudapp.azure.com"
         self.bootstrap_port = "31090"
         self.platform_user = "5gmeta-platform"
         self.platform_password = "5gmeta-platform"
@@ -37,7 +38,7 @@ class KafkaTestCase(unittest.TestCase):
         self.cits_consumer = prosumer.create_consumer(self.platform_address, self.bootstrap_port, self.registry_port,
                                                  self.group_id, self.topic)
         self.consumer.subscribe([self.topic.upper()])
-        self.producer = Producer({'bootstrap.servers': '192.168.49.2:31090'})
+        self.producer = Producer({'bootstrap.servers': 'cloudplatform.francecentral.cloudapp.azure.com:31090'})
 
         print("Subscibed topics: " + str(self.topic))
         print("Running...")
@@ -77,7 +78,9 @@ class KafkaTestCase(unittest.TestCase):
 
     def test_cits_consumer(self):
         self.cits_consumer.subscribe([self.topic])
-        msg = self.cits_consumer.poll(60.0)
+        cits_consumer = prosumer.create_consumer(self.platform_address, self.bootstrap_port, self.registry_port,
+                                                 self.group_id, self.topic)
+        msg = cits_consumer.poll(60.0)
         print(msg)
         print("NEW MESSAGE")
         currentTime = time.time_ns() // 1_000_000

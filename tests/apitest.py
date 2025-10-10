@@ -3,22 +3,20 @@ import requests
 from py5gmeta.common import api, identity, message
 
 
-#curl -X DELETE -H "Content-Type: application/json" http://192.168.10.9:8080/v0/mecregistry/1/nbservices/1
-
 class APITestCase(unittest.TestCase):
 
     def setUp(self):
-        self.mec_id= 9
+        self.mec_id= 4
         self.service="1"
         self.url = "https://cloudplatform.francecentral.cloudapp.azure.com/"
         self.api_end_point ="https://cloudplatform.francecentral.cloudapp.azure.com/api/v1"
         self.identity_url = "https://cloudplatform.francecentral.cloudapp.azure.com/identity/"
         self.headers = {'Accept' :'application/json', 'Content-Type' : 'application/json'}
-        self.username = "test"
-        self.password = "test"
+        self.username = "testuser-2025"
+        self.password = "LW9Bev$8.:z*8XE"
         self.realm_name = "5gmeta"
         self.client_id = "5gmeta_login"
-        self.client_secret = ""
+        self.client_secret = "aydrbJYVVCl7gpSYW3lv4hMYWUXcXtJA"
         self.auth_headers = identity.get_header_with_token(self.identity_url, self.realm_name, self.client_id, self.client_secret,  self.username, self.password)
         self.service_id = "1"
         self.data =  {
