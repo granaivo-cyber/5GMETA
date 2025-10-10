@@ -5,12 +5,12 @@ from py5gmeta.common.platform import FiveGMetaPlatform
 platform_url = "https://cloudplatform.francecentral.cloudapp.azure.com"
 bootstrap_port = "31081"
 registry_port = "443"
-username =  "test-user"
-password = "test-_user_password-04834!"
-amqp_user = "5gmeta-platform"
-amqp_password = "5gmeta-platform"
-realm_name =  "5gmeta"
-client_id = "5gmeta_login"
+username =  ""
+password = ""
+amqp_user = ""
+amqp_password = ""
+realm_name =  ""
+client_id = ""
 client_secret = ""
 
 
