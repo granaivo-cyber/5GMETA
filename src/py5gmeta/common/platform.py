@@ -77,12 +77,16 @@ class FiveGMetaPlatform:
         auth_header = identity.get_header_with_token(self.get_platform_identity_url(), self.get_realm_name(),
                                                      self.get_client_id(),
                                                      self.get_client_secret(), self.get_username(), self.get_password())
+
+        x_user_id = identity.get_x_user_info(self.get_platform_identity_url(), self.get_realm_name(),
+                                                     self.get_client_id(),
+                                                     self.get_client_secret(), self.get_username(), self.get_password())
+        x_user_id = x_user_id['sub']
+
         choice = helpers.produce_or_consume()
-        helpers.print_topics_information(url=self.get_platform_api_endpoint(),auth_header=auth_header, choice=choice, api_endpoint= self.get_platform_api_endpoint(), disable_instance_api= self.disable_instance_api, username = self.get_username(), password= self.get_platform_topics_url(), identity_url= self.get_platform_identity_url(), realm_name =  self.get_realm_name(), client_id= self.get_client_id(), client_secret= self.get_client_secret())
+        helpers.print_topics_information(url=self.get_platform_api_endpoint(),auth_header=auth_header, x_user_id=x_user_id, choice=choice, api_endpoint= self.get_platform_api_endpoint(), disable_instance_api= self.disable_instance_api, username = self.get_username(), password= self.get_platform_topics_url(), identity_url= self.get_platform_identity_url(), realm_name =  self.get_realm_name(), client_id= self.get_client_id(), client_secret= self.get_client_secret())
 
     def run(self):
         self.print_welcome()
         self.print_topics_information()
         print("Thank your for using the 5GMETA Platform. Bye.")
-
-

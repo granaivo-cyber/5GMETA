@@ -2,7 +2,7 @@ import base64
 import random
 import string
 import sys
-from proton import Message
+import proton
 
 from py5gmeta.common import geotile
 from py5gmeta.common.database import DataInfo, DataSourceInfo, LicenseInfo, SourceLocationInfo, DataTypeInfo, \
@@ -47,7 +47,7 @@ def cits_messages_generator(num, tile, msg_body, data_flow_id, data_format='json
                     "locationQuadkey": tile+str(i%4),
                     "body_size": str(sys.getsizeof(msg_body))
                     }
-        message = Message(body=msg_body, properties=props)
+        message = proton.Message(body=msg_body, properties=props)
         print(message)
         messages.append( message )
     return messages
@@ -68,7 +68,7 @@ def image_messages_generator(image, num, tile, msg_body ):
                     "locationQuadkey": tile+str(i%4),
                     "body_size": str(sys.getsizeof(msg_body))
                 }
-        messages.append( Message(body=msg_body, properties=props) )
+        messages.append(proton.Message(body=msg_body, properties=props))
         print(messages[i])
     print("Message array done! \n")
     return messages

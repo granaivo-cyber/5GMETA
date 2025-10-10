@@ -170,8 +170,8 @@ class DatabaseConnect:
         query = db.sql.insert(sensor).values(to_json(sensor))
         try:
             self.connection.execute(query)
-        except:
-            pass
+        except Exception as e:
+            print(e)
 
 
 

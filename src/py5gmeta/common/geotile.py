@@ -32,7 +32,7 @@ def get_location(latitude, longitude):
     return geolocator.reverse([latitude, longitude], language="en")
 
 def get_address(latitude, longitude):
-    return get_location(latitude, longitude).raw['address'].get('country', '')
+    return get_location(latitude, longitude).raw['address']
 
 def get_country_from(latitude, longitude):
-    return get_address(latitude, longitude)
+    return get_address(latitude, longitude).get('country', '')

@@ -1,16 +1,17 @@
 import logging
+
 logger = logging.getLogger(__name__)
 logging.basicConfig(level=logging.INFO)
 
 def list_streams(client):
-    arr_res = client.ksql('show streams')
+    arr_res = client.ksql('show streams;')
     streams = next(item for item in arr_res if item['streams']!="")['streams']
     streams_list = list(map(lambda stream: stream['name'], streams))
     logger.debug(streams_list)
     return streams_list
 
 def list_running_connectors(client):
-    arr_res = client.ksql('show connectors')
+    arr_res = client.ksql('show connectors;')
     connectors = next(item for item in arr_res if item['connectors']!="")['connectors']
     return list(map(lambda item: item['name'], filter( lambda item: item['state'].find('RUNNING')!=-1 ,connectors)))
 
@@ -22,8 +23,8 @@ def drop_stream(client, stream_name):
 
 def create_stream_from_topic(client, stream_name, topic_name):
     if not exists_stream(client, stream_name):
-        create_stream = "CREATE STREAM " + stream_name + " \n" \
-                        "WITH (kafka_topic='" + topic_name + "', value_format='AVRO');"
+        create_stream = "CREATE STREAM " + stream_name + " WITH ( KAFKA_TOPIC='" + topic_name + "', VALUE_FORMAT='AVRO' );"
+        print(create_stream)
         client.ksql( create_stream )
         return True
     return False
@@ -31,9 +32,10 @@ def create_stream_from_topic(client, stream_name, topic_name):
 def get_connector(name, username_activemq, password_activemq, activemq_url, datatype):
 
     create_connector = "CREATE SOURCE CONNECTOR `" + name + "` WITH (\n" \
-                "'connector.class'= 'com.datamountaineer.streamreactor.connect.jms.source.JMSSourceConnector',\n" \
+                "'connector.class'= 'org.apache.kafka.connect.file.FileStreamSourceConnector',\n" \
                 "'connect.jms.initial.context.factory'= 'org.apache.activemq.jndi.ActiveMQInitialContextFactory',\n" \
                 "'tasks.max'= '1',\n" \
+                "'topic' = 'cits', \n" \
                 "'connect.jms.queues'= 'jms-queue',\n" \
                 "'connect.jms.password'= '" + password_activemq + "',\n" \
                 "'connect.progress.enabled'= 'true',\n" \
@@ -50,7 +52,7 @@ def create_datatype_connector(client, datatype, name, activemq_url, username, pa
     client.ksql( get_connector(name, username, password, activemq_url, datatype) )
 
 # SINK: from Kafka to MEC (ActiveMQ)
-def create_sink_messages_connector( client, source_topic, dest_topic, name, activemq_url, amqp_user, amqp_password, schema_reqistry_url ):
+def create_sink_messages_connector( client, source_topic, dest_topic, name, activemq_url, amqp_user, amqp_password):
     """
     :param client:
     :param source_topic:
@@ -63,10 +65,10 @@ def create_sink_messages_connector( client, source_topic, dest_topic, name, acti
     :return:
     """
     create_connector = "CREATE SINK CONNECTOR `" + name + "` WITH (\n" \
-                "'connector.class'= 'com.datamountaineer.streamreactor.connect.jms.sink.JMSSinkConnector',\n" \
+                "'connector.class'= 'org.apache.kafka.connect.file.FileStreamSourceConnector',\n" \
                 "'connect.jms.initial.context.factory'= 'org.apache.activemq.jndi.ActiveMQInitialContextFactory',\n" \
                 "'tasks.max'= '1',\n" \
-                "'topics'= '"+source_topic+"',\n" \
+                "'topic'= '"+source_topic+"',\n" \
                 "'connect.jms.password'= '" + amqp_password + "',\n" \
                 "'connect.progress.enabled'= 'true',\n" \
                 "'connect.jms.username'= '" + amqp_user + "', \n" \
@@ -93,22 +95,22 @@ def query_stream_to_topic( client, datatype_stream, dest_stream="topic_filtered"
     :param tile_filter:
     :return:
     """
-    if not exists_stream(datatype_stream):
+    if not exists_stream(client, datatype_stream):
         print("ERROR: Source stream not exists - " + datatype_stream)
         return False
     else:
         drop_stream(client,  dest_stream)
     
-    statement_filter = "CREATE STREAM " + dest_stream + " AS SELECT * \n" \
-                "FROM " + datatype_stream + " " 
+    statement_filter = "CREATE STREAM " + dest_stream + " AS SELECT * FROM" + datatype_stream + " "
     if sender_id=="" and tile_filter=="":
         # no filter on the datatype
         statement_filter += ";"
     else:
-        statement_filter += "WHERE \n"
+        statement_filter += "WHERE "
         if sender_id!="":
-            statement_filter += "`PROPERTIES`['sender_id']='" + sender_id + "' \n"     
+            statement_filter += "`PROPERTIES`['sender_id']='" + sender_id + " "
         if tile_filter!="":
             statement_filter += "AND `PROPERTIES`['tile'] LIKE '" + tile_filter + "';" 
     # Execute the statement as requested
+    print(statement_filter)
     client.ksql(statement_filter)

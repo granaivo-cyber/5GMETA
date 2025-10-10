@@ -1,8 +1,8 @@
 import json
-
 import requests
 import sys
 from py5gmeta.common import database
+from py5gmeta.common import identity
 
 #TODO import logging and use a logger instead of print
 
@@ -12,7 +12,7 @@ def get_types(url:str, auth_header: dict, mec_id:int):
         types = requests.get(url + "/mecs/" + str(mec_id) + "/types", headers=auth_header).text
         return types
     except requests.exceptions.RequestException as err:
-#        print(f"{err}")
+        print(f"{err}")
         sys.exit("Error getting the instance types. Try again.")
     
 def request_instance(url:str, auth_header: dict, mec_id: int, data):
@@ -31,13 +31,16 @@ def request_instance(url:str, auth_header: dict, mec_id: int, data):
 
 def delete_instance(url: str, auth_header: dict, mec_id: int, instance_id: int):
     """ Delete an instance Type from a MEC server"""
-    requests.delete(f'{url}/mecs/{mec_id}/instances/{instance_id}', headers=auth_header)
+    pass
+
+    #requests.delete(f'{url}/mecs/{mec_id}/instances/{instance_id}', headers=auth_header)
 
 
 def get_topic(url: str, auth_headers: dict):
     """Get the Kafka topic for the given tile and instance type."""
     topic = ""
     try:
+         print(auth_headers)
          topic =  requests.post(url, headers=auth_headers).text
     except Exception as e :
         print(e)
@@ -56,30 +59,29 @@ def get_datatype_from_tile(url, auth_header, tile: int):
         print(f"{err}")
         sys.exit("Error getting datatypes. Try again.")
 
-#TODO Chech this.https://cloudplatform.francecentral.cloudapp.azure.com/api/v1/ui/redirect?state=7830cd34fbcad162a5c1548ca2b9a582&session_state=05a8c95c-4980-47d6-85d5-408441fee3dc&iss=https%3A%2F%2Fcloudplatform.francecentral.cloudapp.azure.com%2Fidentity%2Frealms%2F5gmeta&code=1010d6be-2d05-4efa-8f5d-5da5f8ea7e00.05a8c95c-4980-47d6-85d5-408441fee3dc.d325cde6-22fb-47d9-bac0-3d924d2dca24
 def request_recource(url, endpoint, auth_header, tile, data_type, sub_type,  instance_type, filters):
-    query = f'/query?dataSubType={sub_type}&quadkey={tile}&instance_type={instance_type}'
 
+    query = f'/query?dataSubType={sub_type}&quadkey={tile}&instance_type={instance_type}'
     try:
             answer= requests.post(url + endpoint + data_type + query, headers=auth_header)
             if answer.status_code != 200:
-                sys.exit("Error requesting topics. Try again.")
+                print(answer)
             else:
                 topic=answer.text
                 print(topic)
                 return topic
     except requests.exceptions.RequestException as err:
         print(f"{err}")
-        sys.exit("Error requesting topics. Try again.")
+
 
 def request_topic(url, auth_header, tile, data_type, sub_type,  instance_type, filters):
     return request_recource(url, "/topics/", auth_header, tile, data_type, sub_type,  instance_type, filters)
 
-def get_ids(url, auth_header, tile, data_type, sub_type,  instance_type, filters=""):
-    return request_recource(url, "/dataflows/", auth_header, tile, data_type, sub_type,  instance_type, filters)
+def get_ids(url, auth_header,  tile, data_type, sub_type,  instance_type, filters=""):
+    return request_recource(url, "/dataflows/", auth_header,  tile, data_type, sub_type,  instance_type, filters)
 
 def get_properties(url, auth_header, tile, data_type, sub_type,  instance_type, filters):
-    return request_recource(url, "/datatypes/", auth_header, tile, data_type+"/properties/", sub_type, instance_type, filters)
+    return request_recource(url, "/datatypes/", auth_header,  tile, data_type+"/properties/", sub_type, instance_type, filters)
 
 def get_id_properties(url, auth_header, mec_id):
     try:

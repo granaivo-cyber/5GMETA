@@ -68,7 +68,7 @@ def get_instance_types():
     pass
 
 
-def get_topics(url, auth_header, username,  choice,  disable_instance_api, tiles):
+def get_topics(url, auth_header, x_user_id, username,  choice,  disable_instance_api, tiles):
     topics = []
     filters = ""
     source_ids = {}
@@ -104,9 +104,7 @@ def get_topics(url, auth_header, username,  choice,  disable_instance_api, tiles
                                 f"Please enter the instance type for '{datatype}' pipeline in tile {tile}: ")
                             if instance_type not in avalaible_types:
                                 print(f"There is no '{instance_type}' instance type in tile {tile}")
-                        data = '{"username": "' + username + '", "datatype": "' + datatype + '", "instance_type": "' + instance_type + '", }'
-                        #TODO fix this
-                        data['X_Userinfo'] = "username"
+                        data = f'{username:{username}, datatype:{datatype}, instance_type:{instance_type}, X_Userinfo:{x_user_id}}'
                         instance = api.request_instance(url, auth_header, mec_id, data)
                         try:
                             instance_id = instance['instance_id']
@@ -134,7 +132,7 @@ def get_topics(url, auth_header, username,  choice,  disable_instance_api, tiles
                         filters = ""
                     else:
                         filters = "&dataSubType=" + subdatatype
-                    topic = api.request_topic(url, auth_header, tile, datatype, subdatatype,
+                    topic = api.request_topic(url, auth_header, x_user_id, tile, datatype, subdatatype,
                                               instance_type, filters=filters)
                     topics.append(topic)
 
@@ -145,7 +143,7 @@ def get_topics(url, auth_header, username,  choice,  disable_instance_api, tiles
             instance_type = "noinstance"
             datatype = "event"
             subdatatype = ""
-            topic = api.request_topic(url, auth_header,  tile, datatype, subdatatype, instance_type, filters="")
+            topic = api.request_topic(url, auth_header, x_user_id,  tile, datatype, subdatatype, instance_type, filters="")
             topics.append(topic)
 
     return topics, source_ids, instance_ids
@@ -156,7 +154,7 @@ def print_topics_information(**kargs):
     available_tiles = list(filter(None, re.split('\[|\]|\"|,|\n|\s', available_tiles)))
     tiles = get_tiles_by_choice(kargs['choice'], available_tiles)
     print(f"\nSelected tile(s): {tiles}\n")
-    topics, source_ids, instance_ids = get_topics(kargs['api_endpoint'], kargs['auth_header'],
+    topics, source_ids, instance_ids = get_topics(kargs['api_endpoint'], kargs['auth_header'], kargs['x_user_id'],
                                                           kargs['username'], kargs['choice'], kargs['disable_instance_api'], tiles)
     if topics:
         print(f"Connect to the following kafka topics: {topics}")
