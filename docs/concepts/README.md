@@ -88,7 +88,7 @@ The Event Generation allows a CAM Service and Application to generate events and
 ![Event Generation](../images/eventgen.jpg)
 
 
-## Busisses exploitation of the 5GMETA  Platform <a name="business">
+## Business exploitation of the 5GMETA  Platform <a name="business">
 
 #TODO
 
