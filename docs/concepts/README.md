@@ -88,13 +88,30 @@ The Event Generation allows a CAM Service and Application to generate events and
 ![Event Generation](../images/eventgen.jpg)
 
 
-## Busisses exploitation of the 5GMETA  Platform <a name="business">
+## Business exploitation of the 5GMETA  Platform <a name="business">
 
 #TODO
 
 ## Conclusions and Perspectives <a name="conclusions">
+A neutral platform automotive data available to interested third-party service providers in a safe and secure manner,
+without requiring those third parties to be linked directly or sign a contract with each automotive manufacturer.
+
+A B2B Unique Selling Points (USPs) with publish / Subscribe model for Data Providers and Data Consumers​
+The platform does not use any storage or data analytics. It acts as a dynamic hub where various stakeholders in the
+automotive industry (vehicle manufacturers, mobility service providers, infrastructure companies, and technology
+developers) to securely exchange and monetize data as per valuable use cases such as enhancing autonomous
+vehicle systems, improving traffic management, or personalizing mobility services.
+
+Different pricing strategy of data providers could be based on: ​
+volume, metering data usage, fixed, data subscription, revenue sharing, tiered, negotiated, auction or bidding
+
+Note: the spread between the selling price (access cost) and the cost price (publish cost) must also consider the variable
+costs arising from network services and cloud services (platform cost)
 
 #TODO
+### 5GMETA Business Models
+
+
 
 ## References <a name="references">
 
