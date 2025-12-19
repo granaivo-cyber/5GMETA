@@ -104,6 +104,9 @@ N.B:  the spread between the selling price (access cost) and the cost price (pub
 
 ![Platform arch](../images/data-monet-framework.png)
 
+![Platform arch](../images/data-monet-framework.png)
+
+
 ## Conclusions and Perspectives <a name="conclusions">
 
 #TODO
