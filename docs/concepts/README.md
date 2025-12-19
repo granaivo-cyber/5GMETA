@@ -102,6 +102,7 @@ The platform does not use any storage or data analytics. It acts as a dynamic hu
 
 N.B:  the spread between the selling price (access cost) and the cost price (publish cost) must also consider the variable costs arising from network services and cloud services (platform cost)
 
+![Platform arch](../images/data-monet-framework.png)
 
 ![Platform arch](../images/data-monet-framework.png)
 
