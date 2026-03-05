@@ -120,6 +120,8 @@ the platform does not use any storage or data analytics. It acts as a dynamic hu
 
 ![Platform arch](../images/direct-indirect-data-monet.png)  
 
+Here are some prospects that seem likely to us for the next 10 years
+
 ## Automative Revenue Mix
 
 ![Platform arch](../images/auto-rev-mix.png)  
