@@ -120,14 +120,30 @@ the platform does not use any storage or data analytics. It acts as a dynamic hu
 
 ![Platform arch](../images/direct-indirect-data-monet.png)  
 
+## Automative Revenue Mix
 
 ![Platform arch](../images/auto-rev-mix.png)  
 
+## Emerging Revenue Stream - MaaS
 
 ![Platform arch](../images/maas.png) 
 
+## Emerging Revenue Stream - Car-as-a-Platform
 
 ![Platform arch](../images/car-as-a-platform.png) 
+
+## Winning Strategy Towards Data Monetization
+
+The market environment is ripe for the automotive industry to activate data as an incremental revenue stream. Ecosystem around data are well established in technology/telecom industries which will influence adoption in automotive as industries converge. However, the industry needs to embrace structural changes to enable data-as-an-asset concept.
+
+## Key considerations for a Winning Data Monetization Strategy
+
+* **Ambition**: achievable data strategy
+* **Choice of Use Cases**: choose use cases having synergies with the company’s strategy
+* **Build an Ecosystem**: a data-driven business will require working relationships with a wide array of players from adjacent ecosystems to own best aspects of car data monetization.
+* **Scalability**: companies will need to acquire internal capabilities and set up a support structure for data to scale into a mainstream revenue pocket.
+
+![Platform arch](../images/car-in-world.png) 
 
 ## References <a name="references">
 
