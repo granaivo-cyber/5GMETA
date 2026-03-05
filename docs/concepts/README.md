@@ -90,28 +90,44 @@ The Event Generation allows a CAM Service and Application to generate events and
 
 ## Business exploitation of the 5GMETA  Platform <a name="business">
 
-#TODO
-5GMETA Business Models
+## 5GMETA Business Models
 
-A neutral platform automotive data available to interested third-party service providers in a safe and secure manner, without requiring those third parties to be linked directly or sign a contract with each automotive manufacturer.
+* **A neutral platform** automotive data available to interested third-party service providers in a safe and secure manner, without requiring those third parties to be linked directly or sign a contract with each automotive manufacturer.
 
-A B2B Unique Selling Points (USPs) with publish / Subscribe model for Data Providers and Data Consumers
+* **A B2B Unique Selling Points (USPs)** with publish / Subscribe model for Data Providers and Data Consumers
 the platform does not use any storage or data analytics. It acts as a dynamic hub where various stakeholders in the automotive industry (vehicle manufacturers, mobility service providers, infrastructure companies, and technology developers) to securely exchange and monetize data as per valuable use cases such as enhancing autonomous vehicle systems, improving traffic management, or personalizing mobility services.
 
-Different pricing strategy of data providers could be based on: volume, metering data usage, fixed, data subscription, revenue sharing, tiered, negotiated, auction or bidding
+* **Different pricing strategy** of data providers could be based on: volume, metering data usage, fixed, data subscription, revenue sharing, tiered, negotiated, auction or bidding
 
-Note: the spread between the selling price (access cost) and the cost price  (publish cost) must also consider the variable costs arising from network services and cloud services (platform cost)
+**Note**: the spread between the selling price (access cost) and the cost price  (publish cost) must also consider the variable costs arising from network services and cloud services (platform cost)
 
+## 5GMETA data monetization framework
 
-5GMETA data monetization framework
-
+![Platform arch](../images/data-monet.png)
 
 
 
 
 ## Conclusions and Perspectives <a name="conclusions">
 
-#TODO
+## Data monetization
+
+**Transforming data into a monetizable asset will be key focus area for most companies to increase revenue :**
+
+* **Direct data monetization** entails offering direct access of data to third parties  or downstream vendors, allowing them to further enhance and refine the data for their specific purpose. Companies can sell the data it in raw form, or in a form that’s transformed into analysis and insights.
+
+* **Indirect monetization** Involves analyzing data to reveal insights that can improve your organization’s business performance, by deriving profits through market optimization. 
+
+![Platform arch](../images/direct-indirect-data-monet.png)  
+
+
+![Platform arch](../images/auto-rev-mix.png)  
+
+
+![Platform arch](../images/maas.png) 
+
+
+![Platform arch](../images/car-as-a-platform.png) 
 
 ## References <a name="references">
 
